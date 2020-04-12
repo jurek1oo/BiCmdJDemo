@@ -1,0 +1,10 @@
+# Copy this file to config.properties
+# replace parameters with your system values.
+#
+HOST=192.168.1.42:8882
+USER=admin
+PASSWORD=password
+LOG_LEVEL=info
+LOG_FILE=./bicmdjdemo.log
+PROFILE1=1
+PROFILE2=2
