@@ -7,6 +7,10 @@ The project has been developed using InteliJ Idea IDE.
 The project sends command to BlueIris to togle two different profile as active one, every minute.
 Read and change config.properties file, to make it work for your BI system.
 
+To build the exec jar:
+
+mvn package -Dmaven.test.skip
+
 Have fun and let me know if you have any issues.
 
 Good luck, 

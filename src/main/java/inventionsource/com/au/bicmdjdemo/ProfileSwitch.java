@@ -4,19 +4,11 @@
  * version 1.0 working with file, email alert 2019-05-09
  */
 package inventionsource.com.au.bicmdjdemo;
-import inventionsource.com.au.blueiriscmdj.*;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 
+import inventionsource.com.au.blueiriscmdj.*;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.config.Configurator;
 
 /**
@@ -26,7 +18,7 @@ public class ProfileSwitch {
 
     private final Logger log = LogManager.getLogger(ProfileSwitch.class);
     
-    final static String VERSION = "1.0";
+    final static String VERSION = "1.1";
 
     public ProfileSwitch() throws Exception {
 
@@ -56,14 +48,11 @@ public class ProfileSwitch {
             Configurator.setAllLevels(LogManager.getRootLogger().getName(), level);
             LoginParams login = new LoginParams(USER,PASSWORD,HOST);
 
-            // change BI profile every minute
-            
-            ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+            // change BI profile 2 times
             //------------------------------------------------------------------------------
-            exec.scheduleAtFixedRate(new Runnable() {
-              @Override
-              public void run() {
-                try {
+            try {
+                for (int i = 0; i < 2; i++) {
+                    log.info("i: " + i);
                     HelperSetProfiles helper = new HelperSetProfiles(login);
                     int activeProfile = helper.GetActiveProfile();
 
@@ -73,19 +62,15 @@ public class ProfileSwitch {
                     } else {
                         helper.SetActiveProfile(PROFILE2);
                     }
-                } catch (Exception ex1)
-                {
-                    log.error("Error: ", ex1);
-                }                                
-              }
-            }, 0, 1, TimeUnit.MINUTES);
-            //------------------------------------------------------------------------------
-            while(true) {
-                 Thread.sleep(1000);
+                    Thread.sleep(2000);
+                }
+                log.info("Finished.");
+            } catch (Exception ex1)
+            {
+                log.error("Error: ", ex1);
             }
-        } catch (Exception e) {
-            log.error("Something went wrong: ", e);             
-
+         } catch (Exception e) {
+            log.error("Something went wrong: ", e);
         }
     }
 }
