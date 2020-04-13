@@ -3,8 +3,9 @@
 This is a Java project demonstrating use of BluIrisCmdJ (https://github.com/jurek1oo/blueiriscmdj)
 library project. For more information look at https://github.com/jurek1oo/blueiriscmdj/wiki.
 
-The project has been developed using InteliJ Idea IDE.
-The project sends command to BlueIris to togle two different profile as active one, every minute.
+The project has been developed using InteliJ Idea 2020.1 Community IDE.
+
+The project sends command to BlueIris to togle two different profile as active one.
 Read and change config.properties file, to make it work for your BI system.
 
 To build the exec jar:
