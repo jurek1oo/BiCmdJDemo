@@ -1,7 +1,7 @@
 # BICmdJDemo under GNU gpl-2.0 licence --- https://opensource.org/licenses/gpl-2.0.php
 
-This is a Java project demonstrating use of BluIrisCmdJ (https://github.com/jurek1oo/blueiriscmdj)
-library project. For more information look at https://github.com/jurek1oo/blueiriscmdj/wiki.
+This is a Java project demonstrating use of BluIrisCmdJ (https://github.com/jurek1oo/BlueIrisCmdJ)
+library project. For more information look at https://github.com/jurek1oo/BlueIrisCmdJ/wiki.
 
 The project has been developed using InteliJ Idea 2020.1 Community IDE.
 
